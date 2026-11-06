@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Frost
+Name[da]=Frost
+Comment=Control opacity and blur for Glassy windows
+Comment[da]=Styr vinduesuigennemsigtighed og sløring for glasvinduer
+Exec=frost %f
+Icon=frost
+Terminal=false
+Categories=Utility;Settings;
+StartupWMClass=frost
