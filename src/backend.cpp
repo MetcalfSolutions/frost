@@ -11,7 +11,7 @@
 
 Backend::Backend(const QString &configFile, const QString &hyprctl, QObject *parent)
     : QObject(parent),
-      m_configFile(configFile.isEmpty() ? QDir::homePath() + "/.config/hypr/looknfeel.lua" : configFile),
+      m_configFile(configFile.isEmpty() ? QDir::homePath() + "/.config/hypr/frost.lua" : configFile),
       m_hyprctl(hyprctl.isEmpty() ? QStandardPaths::findExecutable("hyprctl") : hyprctl) {
     m_saveTimer.setSingleShot(true);
     m_saveTimer.setInterval(400);
@@ -167,6 +167,20 @@ bool Backend::saveToFile() {
         return false;
     }
     tempFile.close();
+
+    // Also write zz-frost.lua to toggles dir so Hyprland loads it after window-glassy.lua
+    QString togglesPath = QDir::homePath() + "/.local/state/omarchy/toggles/hypr/zz-frost.lua";
+    if (m_configFile.contains(".config/hypr")) {
+        QFileInfo togglesInfo(togglesPath);
+        QDir().mkpath(togglesInfo.absolutePath());
+        QFile tf(togglesPath + ".tmp");
+        if (tf.open(QIODevice::WriteOnly | QIODevice::Text)) {
+            tf.write(block.toUtf8());
+            tf.close();
+            QFile::remove(togglesPath);
+            QFile::rename(togglesPath + ".tmp", togglesPath);
+        }
+    }
 
     return QFile::rename(tempPath, m_configFile) || (QFile::remove(m_configFile) && QFile::rename(tempPath, m_configFile));
 }
