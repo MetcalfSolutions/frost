@@ -1,0 +1,26 @@
+{
+  "panel.title": "Frost",
+  "panel.subtitle": "Glass & Blur",
+  "panel.reset": "Reset",
+  "panel.focused_opacity": "Focused Opacity",
+  "panel.unfocused_opacity": "Unfocused Opacity",
+  "panel.link_focused": "Link focused & unfocused",
+  "panel.blur_radius": "Blur Radius (Size)",
+  "panel.blur_depth": "Blur Depth (Passes)",
+  "panel.passes": {
+    "one": "%1 pass",
+    "other": "%1 passes"
+  },
+  "panel.fine_tuning": "Fine Tuning",
+  "panel.expand": "Expand ▼",
+  "panel.collapse": "Collapse ▲",
+  "panel.noise": "Noise (Grain)",
+  "panel.vibrancy": "Vibrancy",
+  "panel.contrast": "Contrast",
+  "panel.brightness": "Brightness",
+  "panel.open_app": "Open App",
+  "panel.live_sync": "Live sync",
+  "panel.saved": "Saved",
+  "panel.reset_done": "Reset to defaults",
+  "tooltip": "Frost — Window Glass"
+}

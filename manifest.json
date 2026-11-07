@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "frost.panel",
+  "name": "Frost",
+  "version": "1.0.0",
+  "author": "metcalf.solutions",
+  "license": "MIT",
+  "description": "Interactive window opacity and frosted glass blur configurator for Omarchy",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "Panel.qml"
+  },
+  "barWidget": {
+    "displayName": "Frost",
+    "description": "Quickly adjust window opacity and frosted glass blur",
+    "category": "Settings",
+    "defaultSection": "right",
+    "allowMultiple": false
+  }
+}
