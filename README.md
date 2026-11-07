@@ -13,6 +13,16 @@ Frost gives Omarchy users instant, fine-grained control over window transparency
   <img src="preview.png" alt="Frost Menu Bar Panel Preview" width="420" />
 </p>
 
+### Quick Install
+
+```bash
+# Install and enable Frost in your Omarchy bar:
+omarchy plugin add https://github.com/MetcalfSolutions/frost.git --enable
+
+# To uninstall anytime:
+omarchy plugin remove frost.panel --yes
+```
+
 ---
 
 ## Table of Contents
@@ -20,9 +30,9 @@ Frost gives Omarchy users instant, fine-grained control over window transparency
 - [Visual Showcase (Before & After)](#visual-showcase-before--after)
 - [Features](#features)
 - [Installation & Removal](#installation--removal)
-  - [Omarchy Shell Plugin (1-Step Install)](#1-omarchy-shell-plugin-1-step-install)
-  - [Uninstalling Frost](#2-uninstalling-frost)
-  - [Standalone Desktop App & CLI (Optional)](#standalone-desktop-app--cli-optional)
+  - [1. Omarchy Shell Plugin (Recommended)](#1-omarchy-shell-plugin-recommended)
+  - [2. Uninstalling Frost](#2-uninstalling-frost)
+  - [3. Standalone Desktop App & CLI (Optional)](#standalone-desktop-app--cli-optional)
 - [How to Use](#how-to-use)
   - [1. Menu Bar Panel](#1-menu-bar-panel)
   - [2. Standalone Desktop App](#2-standalone-desktop-app)
@@ -39,14 +49,14 @@ Frost gives Omarchy users instant, fine-grained control over window transparency
 
 ## Visual Showcase (Before & After)
 
-See the difference Frost makes on glassy windows. In the comparison below, default Omarchy glass heavily blurs and opacifies background windows, while Frost is tuned to 78% opacity with a tight 2px blur pass, allowing background animations to shine through with crystal clarity:
+See the difference Frost makes on glassy windows. Below, default Omarchy glass heavily blurs and opacifies background windows. With Frost tuned to 72% opacity and a crisp 2px blur pass, live background shaders and animations shine through with crystal clarity:
 
 <p align="center">
   <img src="assets/comparison_side_by_side.png" alt="Before and After Glass Comparison" width="100%" />
 </p>
 
-- **Before (Default Omarchy Glass):** Standard presets enforce heavier blur (`passes = 2, size = 4-5`) and 100% opacity, muting background visuals.
-- **After (Frost Tuned Glass):** Tailored opacity (`0.78`) and a crisp low-radius blur (`size = 2, passes = 1`) let live desktop shaders and background elements illuminate through active and inactive terminals.
+- **Before (Default Omarchy Glass):** Standard presets enforce 100% opacity and heavy blur (`passes = 2, size = 4-5px`), muting background visuals.
+- **After (Frost Tuned Glass):** Tailored opacity (`72% focused, 50% unfocused`) and a tight low-radius blur (`size = 2px, passes = 1`) let live desktop shaders and background elements illuminate through active and inactive terminals.
 
 ---
 
@@ -64,7 +74,7 @@ See the difference Frost makes on glassy windows. In the comparison below, defau
 
 ## Installation & Removal
 
-### 1. Omarchy Shell Plugin (1-Step Install)
+### 1. Omarchy Shell Plugin (Recommended)
 
 To install and enable Frost directly in your Omarchy top menu bar:
 
