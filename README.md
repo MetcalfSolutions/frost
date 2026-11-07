@@ -17,10 +17,12 @@ Frost gives Omarchy users instant, fine-grained control over window transparency
 
 ## Table of Contents
 
+- [Visual Showcase (Before & After)](#visual-showcase-before--after)
 - [Features](#features)
-- [Installation](#installation)
+- [Installation & Removal](#installation--removal)
   - [Omarchy Shell Plugin (1-Step Install)](#1-omarchy-shell-plugin-1-step-install)
-  - [Standalone Desktop App & CLI (Optional)](#2-standalone-desktop-app--cli-optional)
+  - [Uninstalling Frost](#2-uninstalling-frost)
+  - [Standalone Desktop App & CLI (Optional)](#standalone-desktop-app--cli-optional)
 - [How to Use](#how-to-use)
   - [1. Menu Bar Panel](#1-menu-bar-panel)
   - [2. Standalone Desktop App](#2-standalone-desktop-app)
@@ -29,8 +31,22 @@ Frost gives Omarchy users instant, fine-grained control over window transparency
   - [Instant Live IPC Evaluation](#instant-live-ipc-evaluation)
   - [Alphabetical Toggle Persistence (Zero Spring-Back)](#alphabetical-toggle-persistence-zero-spring-back)
 - [Configuration Reference](#configuration-reference)
+- [Wallpaper Callout](#wallpaper-callout)
 - [Development & Testing](#development--testing)
 - [License](#license)
+
+---
+
+## Visual Showcase (Before & After)
+
+See the difference Frost makes on glassy windows. In the comparison below, default Omarchy glass heavily blurs and opacifies background windows, while Frost is tuned to 78% opacity with a tight 2px blur pass, allowing background animations to shine through with crystal clarity:
+
+<p align="center">
+  <img src="assets/comparison_side_by_side.png" alt="Before and After Glass Comparison" width="100%" />
+</p>
+
+- **Before (Default Omarchy Glass):** Standard presets enforce heavier blur (`passes = 2, size = 4-5`) and 100% opacity, muting background visuals.
+- **After (Frost Tuned Glass):** Tailored opacity (`0.78`) and a crisp low-radius blur (`size = 2, passes = 1`) let live desktop shaders and background elements illuminate through active and inactive terminals.
 
 ---
 
@@ -46,7 +62,7 @@ Frost gives Omarchy users instant, fine-grained control over window transparency
 
 ---
 
-## Installation
+## Installation & Removal
 
 ### 1. Omarchy Shell Plugin (1-Step Install)
 
@@ -64,7 +80,31 @@ To adjust its placement or section anytime:
 omarchy bar move frost.panel --section right
 ```
 
-### 2. Standalone Desktop App & CLI (Optional)
+### 2. Uninstalling Frost
+
+To cleanly remove Frost from your Omarchy shell:
+
+```bash
+# Disable without deleting files:
+omarchy plugin disable frost.panel
+
+# Or completely remove the plugin:
+omarchy plugin remove frost.panel --yes
+```
+
+If you wish to reset your Hyprland glass decoration back to default Omarchy presets:
+
+```bash
+rm -f ~/.local/state/omarchy/toggles/hypr/zz-frost.lua ~/.config/hypr/frost.lua
+hyprctl reload config-only
+```
+
+---
+
+<details>
+<summary><b>Standalone Desktop App & CLI (Optional)</b></summary>
+
+<br />
 
 If you also want the standalone Qt Quick desktop window and the headless CLI:
 
@@ -84,6 +124,18 @@ cd frost
 ./bin/build
 # Installs to ~/.local/bin/frost and registers desktop launcher
 ```
+
+#### To Uninstall the Standalone App & CLI:
+
+```bash
+# If installed via pacman / makepkg:
+sudo pacman -R frost
+
+# If installed via ./bin/build:
+rm -f ~/.local/bin/frost ~/.local/share/applications/frost.desktop
+```
+
+</details>
 
 ---
 
@@ -178,6 +230,12 @@ Default presets aligned with Omarchy Glass:
 | `blur_contrast` | `1.00` | `0.50` – `2.00` | Glass contrast |
 | `blur_brightness`| `0.75` | `0.50` – `1.50` | Glass brightness |
 | `blur_vibrancy` | `0.35` | `0.00` – `1.00` | Color saturation enhancement |
+
+---
+
+## Wallpaper Callout
+
+The live falling digital code wallpaper featured behind the transparent windows in the screenshots is rendered by the **[omatrix](https://github.com/0x1ocean/omarchy-omatrix)** shell plugin (`io.github.0x1ocean.omatrix`). It renders `cmatrix` directly on the bottom Wayland layer in your active theme's terminal palette.
 
 ---
 
